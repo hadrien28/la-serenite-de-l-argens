@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le logement - La sérénité de l'Argens</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        'sage': '#9CAF88',
+                        'terracotta': '#D4A574',
+                        'cream': '#F7F5F3',
+                        'forest': '#5A6B4C'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .image-hover {
+            transition: all 0.4s ease;
+        }
+        .image-hover:hover {
+            transform: scale(1.05);
+        }
+        .amenity-card {
+            transition: all 0.3s ease;
+        }
+        .amenity-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-cream font-sans">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-sage/20">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="font-serif text-2xl font-bold text-forest">
+                    La sérénité de l'Argens
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-forest/70 hover:text-forest transition-colors">Accueil</a>
+                    <a href="logement.html" class="text-forest font-medium border-b-2 border-sage">Le logement</a>
+                    <a href="activites.html" class="text-forest/70 hover:text-forest transition-colors">Activités</a>
+                    <a href="reservation.html" class="text-forest/70 hover:text-forest transition-colors">Réservation</a>
+                </div>
+                <button class="md:hidden text-forest">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 bg-gradient-to-br from-sage/10 to-terracotta/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h1 class="font-serif text-5xl font-bold text-forest mb-6">Le logement</h1>
+                <p class="text-xl text-forest/70 max-w-3xl mx-auto">
+                    Un appartement de 48m² soigneusement aménagé, alliant charme provençal et confort moderne
+                </p>
+            </div>
+
+            <!-- Image Gallery -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+                <div class="md:col-span-2 lg:col-span-2 rounded-2xl overflow-hidden shadow-lg h-96">
+                    <img src="images/salon.png" alt="Salon principal" class="w-full h-full object-cover image-hover">
+                </div>
+                <div class="space-y-6">
+                    <div class="rounded-2xl overflow-hidden shadow-lg h-44">
+                        <img src="images/chambre.png" alt="Chambre" class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-lg h-44">
+                        <img src="images/cuisine.png" alt="Cuisine" class="w-full h-full object-cover image-hover">
+                    </div>
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-lg h-64">
+                    <img src="images/salle de bain.png" alt="Salle de bain" class="w-full h-full object-cover image-hover">
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-lg h-64">
+                    <img src="images/cuisinesalon.png" alt="Vue d'ensemble" class="w-full h-full object-cover image-hover">
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-lg h-64">
+                    <img src="images/paysage.png" alt="Vue extérieure" class="w-full h-full object-cover image-hover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-3 gap-12">
+                <!-- Main Content -->
+                <div class="lg:col-span-2 space-y-8">
+                    <div>
+                        <h2 class="font-serif text-3xl font-bold text-forest mb-6">L'espace</h2>
+                        <div class="prose prose-lg text-forest/80">
+                            <p class="text-xl leading-relaxed mb-6">
+                                Notre appartement de 48m² se trouve au premier étage d'une maison de village typiquement provençale. 
+                                Récemment rénové avec soin, il allie le charme de l'ancien avec le confort moderne.
+                            </p>
+                            <p class="leading-relaxed mb-6">
+                                La grande pièce à vivre lumineuse est le cœur de l'appartement, avec son convertible confortable 
+                                en 140 cm pour accueillir deux personnes supplémentaires. La chambre séparée dispose d'un lit 
+                                en 160 cm avec de nombreux rangements.
+                            </p>
+                            <p class="leading-relaxed">
+                                La cuisine entièrement équipée ouvre sur l'espace de vie, créant une atmosphère conviviale. 
+                                La salle de bain avec douche et le WC indépendant assurent votre confort au quotidien.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Capacity -->
+                    <div class="bg-cream/50 rounded-2xl p-8">
+                        <h3 class="font-serif text-2xl font-semibold text-forest mb-6">Capacité d'accueil</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-sage/20 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-bed text-sage"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-forest">Chambre</p>
+                                    <p class="text-forest/70">1 lit double (160cm)</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-terracotta/20 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-couch text-terracotta"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-forest">Salon</p>
+                                    <p class="text-forest/70">1 convertible (140cm)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 p-4 bg-white rounded-lg">
+                            <p class="text-forest font-medium">
+                                <i class="fas fa-users text-sage mr-2"></i>
+                                Capacité maximale : 4 personnes
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Important Notes -->
+                    <div class="bg-terracotta/10 rounded-2xl p-8">
+                        <h3 class="font-serif text-2xl font-semibold text-forest mb-4">
+                            <i class="fas fa-info-circle text-terracotta mr-2"></i>
+                            Points importants
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-lightbulb text-terracotta mt-1"></i>
+                                <p class="text-forest/80">
+                                    <strong>Éclairage naturel :</strong> La chambre dispose d'une fenêtre mais apporte peu de lumière naturelle. 
+                                    La pièce principale est très lumineuse.
+                                </p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-building text-terracotta mt-1"></i>
+                                <p class="text-forest/80">
+                                    <strong>Situation :</strong> Premier étage, dans le centre du village, proche de toutes les commodités.
+                                </p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-leaf text-terracotta mt-1"></i>
+                                <p class="text-forest/80">
+                                    <strong>Village bio :</strong> Correns est le premier village de France labellisé bio.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Amenities Sidebar -->
+                <div class="space-y-8">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                        <h3 class="font-serif text-2xl font-semibold text-forest mb-6">Équipements</h3>
+                        <div class="space-y-4">
+                            <div class="amenity-card flex items-center space-x-3 p-3 rounded-lg hover:bg-cream/50">
+                                <i class="fas fa-wifi text-sage"></i>
+                                <span class="text-forest">Wi-Fi haut débit</span>
+                            </div>
+                            <div class="amenity-card flex items-center space-x-3 p-3 rounded-lg hover:bg-cream/50">
+                                <i class="fas fa-tv text-sage"></i>
+                                <span class="text-forest">Télévision</span>
+                            </div>
+                            <div class="amenity-card flex items-center space-x-3 p-3 rounded-lg hover:bg-cream/50">
+                                <i class="fas fa-utensils text-sage"></i>
+                                <span class="text-forest">Cuisine équipée</span>
+                            </div>
+                            <div class="amenity-card flex items-center space-x-3 p-3 rounded-lg hover:bg-cream/50">
+                                <i class="fas fa-snowflake text-sage"></i>
+                                <span class="text-forest">Climatisation</span>
+                            </div>
+                            <div class="amenity-card flex items-center space-x-3 p-3 rounded-lg hover:bg-cream/50">
+                                <i class="fas fa-tshirt text-sage"></i>
+                                <span class="text-forest">Lave-linge</span>
+                            </div>
+                            <div class="amenity-card flex items-center space-x-3 p-3 rounded-lg hover:bg-cream/50">
+                                <i class="fas fa-shower text-sage"></i>
+                                <span class="text-forest">Douche moderne</span>
+                            </div>
+                            <div class="amenity-card flex items-center space-x-3 p-3 rounded-lg hover:bg-cream/50">
+                                <i class="fas fa-parking text-sage"></i>
+                                <span class="text-forest">Parking gratuit</span>
+                            </div>
+                            <div class="amenity-card flex items-center space-x-3 p-3 rounded-lg hover:bg-cream/50">
+                                <i class="fas fa-concierge-bell text-sage"></i>
+                                <span class="text-forest">Linge fourni</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-sage/10 rounded-2xl p-8">
+                        <h3 class="font-serif text-xl font-semibold text-forest mb-4">Disponibilités</h3>
+                        <p class="text-forest/70 mb-4">
+                            Consultez nos disponibilités en temps réel sur nos plateformes de réservation.
+                        </p>
+                        <div class="space-y-3">
+                            <a href="https://www.airbnb.fr/rooms/1152815296788503075" target="_blank" 
+                               class="block w-full bg-sage text-white text-center py-3 rounded-lg font-semibold hover:bg-sage/90 transition-colors">
+                                <i class="fab fa-airbnb mr-2"></i>
+                                Voir sur Airbnb
+                            </a>
+                            <a href="https://www.booking.com/Share-CBhkIw" target="_blank"
+                               class="block w-full bg-terracotta text-white text-center py-3 rounded-lg font-semibold hover:bg-terracotta/90 transition-colors">
+                                <i class="fas fa-bed mr-2"></i>
+                                Voir sur Booking
+                            </a>
+                            <button onclick="openContactModal()" 
+                                    class="block w-full bg-forest text-white text-center py-3 rounded-lg font-semibold hover:bg-forest/90 transition-colors">
+                                <i class="fas fa-envelope mr-2"></i>
+                                Payer sans frais - Nous contacter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="font-serif text-2xl font-bold text-forest">Contactez-nous directement</h3>
+                    <button onclick="closeContactModal()" class="text-forest hover:text-sage transition-colors">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <div class="mb-6 p-4 bg-sage/10 rounded-lg">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-piggy-bank text-sage mr-2"></i>
+                        <span class="font-semibold text-forest">Avantages du contact direct :</span>
+                    </div>
+                    <ul class="text-sm text-forest/80 space-y-1">
+                        <li>• Aucun frais de commission</li>
+                        <li>• Prix plus avantageux</li>
+                        <li>• Communication directe</li>
+                        <li>• Flexibilité sur les dates</li>
+                    </ul>
+                </div>
+
+                <form action="https://formspree.io/f/mvgqeney" method="POST" class="space-y-4">
+                    <div>
+                        <label class="block text-forest font-medium mb-2">
+                            Votre email :
+                            <input type="email" name="email" required 
+                                   class="w-full mt-1 px-4 py-3 border border-sage/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-sage focus:border-transparent">
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-forest font-medium mb-2">
+                            Téléphone (optionnel) :
+                            <input type="tel" name="phone" 
+                                   class="w-full mt-1 px-4 py-3 border border-sage/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-sage focus:border-transparent">
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-forest font-medium mb-2">
+                            Dates souhaitées :
+                        </label>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm text-forest/70 mb-1">Date d'arrivée</label>
+                                <input type="date" name="date_arrivee" 
+                                       class="w-full px-4 py-3 border border-sage/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-sage focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-forest/70 mb-1">Date de départ</label>
+                                <input type="date" name="date_depart" 
+                                       class="w-full px-4 py-3 border border-sage/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-sage focus:border-transparent">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-forest font-medium mb-2">
+                            Nombre de personnes :
+                            <select name="guests" 
+                                    class="w-full mt-1 px-4 py-3 border border-sage/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-sage focus:border-transparent">
+                                <option value="">Sélectionnez...</option>
+                                <option value="1">1 personne</option>
+                                <option value="2">2 personnes</option>
+                                <option value="3">3 personnes</option>
+                                <option value="4">4 personnes</option>
+                            </select>
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-forest font-medium mb-2">
+                            Votre message :
+                            <textarea name="message" rows="4" 
+                                      placeholder="Décrivez votre demande, questions spécifiques, etc." 
+                                      class="w-full mt-1 px-4 py-3 border border-sage/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-sage focus:border-transparent resize-none"></textarea>
+                        </label>
+                    </div>
+                    
+                    <input type="hidden" name="_subject" value="Demande de réservation directe - La sérénité de l'Argens">
+                    <input type="hidden" name="_next" value="#">
+                    
+                    <button type="submit" 
+                            class="w-full bg-sage text-white px-8 py-4 rounded-lg font-semibold hover:bg-sage/90 transition-all">
+                        <i class="fas fa-paper-plane mr-2"></i>Envoyer la demande
+                    </button>
+                </form>
+                
+                <p class="text-xs text-forest/60 mt-4 text-center">
+                    Nous vous répondrons dans les plus brefs délais avec une offre personnalisée sans frais de commission.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-forest text-white py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center">
+                <div class="font-serif text-2xl font-bold mb-4">La sérénité de l'Argens</div>
+                <p class="text-white/70 mb-6">Appartement à Correns • Provence verte • Village Bio</p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="https://www.airbnb.fr/rooms/1152815296788503075" target="_blank" class="text-white/70 hover:text-white transition-colors">
+                        <i class="fab fa-airbnb text-2xl"></i>
+                    </a>
+                    <a href="https://www.booking.com/Share-CBhkIw" target="_blank" class="text-white/70 hover:text-white transition-colors">
+                        <i class="fas fa-bed text-2xl"></i>
+                    </a>
+                    <button onclick="openContactModal()" class="text-white/70 hover:text-white transition-colors">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </button>
+                </div>
+                <p class="text-white/50 text-sm">
+                    © 2024 La sérénité de l'Argens. Tous droits réservés.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.md\\:hidden button').addEventListener('click', function() {
+            alert('Menu mobile - en cours de développement');
+        });
+
+        // Contact Modal Functions
+        function openContactModal() {
+            document.getElementById('contactModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            const arrivalInput = document.querySelector('input[name="date_arrivee"]');
+            const departureInput = document.querySelector('input[name="date_depart"]');
+            
+            if (arrivalInput) arrivalInput.min = today;
+            if (departureInput) departureInput.min = today;
+            
+            // Add event listener for arrival date change
+            if (arrivalInput) {
+                arrivalInput.addEventListener('change', function() {
+                    if (departureInput) {
+                        departureInput.min = this.value;
+                        if (departureInput.value && departureInput.value <= this.value) {
+                            departureInput.value = '';
+                        }
+                    }
+                });
+            }
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeContactModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeContactModal();
+            }
+        });
+
+        // Image gallery lightbox effect
+        document.querySelectorAll('.image-hover').forEach(img => {
+            img.addEventListener('click', function() {
+                // Simple lightbox effect
+                const overlay = document.createElement('div');
+                overlay.className = 'fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50';
+                overlay.innerHTML = `
+                    <div class="max-w-4xl max-h-full p-4">
+                        <img src="${this.src}" alt="${this.alt}" class="max-w-full max-h-full object-contain">
+                        <button class="absolute top-4 right-4 text-white text-2xl hover:text-gray-300" onclick="this.parentElement.remove()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
+                document.body.appendChild(overlay);
+            });
+        });
+    </script>
+</body>
+</html>
