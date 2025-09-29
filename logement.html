@@ -451,18 +451,44 @@
         // Image gallery lightbox effect
         document.querySelectorAll('.image-hover').forEach(img => {
             img.addEventListener('click', function() {
-                // Simple lightbox effect
+                // Build lightbox elements
                 const overlay = document.createElement('div');
-                overlay.className = 'fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50';
-                overlay.innerHTML = `
-                    <div class="max-w-4xl max-h-full p-4">
-                        <img src="${this.src}" alt="${this.alt}" class="max-w-full max-h-full object-contain">
-                        <button class="absolute top-4 right-4 text-white text-2xl hover:text-gray-300" onclick="this.parentElement.remove()">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                `;
+                overlay.className = 'lightbox-overlay fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50';
+
+                const container = document.createElement('div');
+                container.className = 'relative max-w-4xl max-h-full';
+
+                const bigImg = document.createElement('img');
+                bigImg.src = this.src;
+                bigImg.alt = this.alt;
+                bigImg.className = 'block max-w-full max-h-full object-contain';
+
+                const closeBtn = document.createElement('button');
+                closeBtn.className = 'fixed top-4 right-4 text-white text-3xl md:text-4xl hover:text-gray-300';
+                closeBtn.setAttribute('aria-label', 'Fermer l\'image');
+                closeBtn.innerHTML = '<i class="fas fa-times"></i>';
+
+                const closeOverlay = () => {
+                    overlay.remove();
+                    document.body.style.overflow = 'auto';
+                    document.removeEventListener('keydown', escHandler);
+                };
+
+                const escHandler = (e) => {
+                    if (e.key === 'Escape') closeOverlay();
+                };
+
+                closeBtn.addEventListener('click', closeOverlay);
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) closeOverlay();
+                });
+                document.addEventListener('keydown', escHandler);
+
+                container.appendChild(bigImg);
+                overlay.appendChild(container);
+                overlay.appendChild(closeBtn);
                 document.body.appendChild(overlay);
+                document.body.style.overflow = 'hidden';
             });
         });
     </script>
