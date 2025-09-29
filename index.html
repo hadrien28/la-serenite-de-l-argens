@@ -54,9 +54,18 @@
                     <a href="activites.html" class="text-forest/70 hover:text-forest transition-colors">Activités</a>
                     <a href="reservation.html" class="text-forest/70 hover:text-forest transition-colors">Réservation</a>
                 </div>
-                <button class="md:hidden text-forest">
+                <button id="mobileMenuButton" class="md:hidden text-forest" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden border-t border-sage/20 bg-white/95">
+            <div class="max-w-7xl mx-auto px-6 py-4 space-y-3">
+                <a href="index.html" class="block text-forest/80 hover:text-forest">Accueil</a>
+                <a href="logement.html" class="block text-forest/80 hover:text-forest">Le logement</a>
+                <a href="activites.html" class="block text-forest/80 hover:text-forest">Activités</a>
+                <a href="reservation.html" class="block text-forest/80 hover:text-forest">Réservation</a>
             </div>
         </div>
     </nav>
@@ -341,9 +350,23 @@
 
     <script>
         // Mobile menu toggle
-        document.querySelector('.md\\:hidden button').addEventListener('click', function() {
-            alert('Menu mobile - en cours de développement');
-        });
+        (function() {
+            const btn = document.getElementById('mobileMenuButton');
+            const menu = document.getElementById('mobileMenu');
+            if (btn && menu) {
+                btn.addEventListener('click', function() {
+                    const isOpen = !menu.classList.contains('hidden');
+                    menu.classList.toggle('hidden');
+                    btn.setAttribute('aria-expanded', String(!isOpen));
+                    // Swap icon between bars and times
+                    const icon = btn.querySelector('i');
+                    if (icon) {
+                        icon.classList.toggle('fa-bars');
+                        icon.classList.toggle('fa-times');
+                    }
+                });
+            }
+        })();
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
