@@ -38,6 +38,97 @@
         .text-shadow {
             text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
+        .testimonial-marquee {
+            overflow: hidden;
+            position: relative;
+            mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+            padding-block: 0.75rem;
+        }
+        .testimonial-marquee:hover .testimonial-track {
+            animation-play-state: paused;
+        }
+        .testimonial-track {
+            display: flex;
+            gap: 1.75rem;
+            width: max-content;
+            animation: testimonial-scroll 45s linear infinite;
+        }
+        .testimonial-item {
+            position: relative;
+            min-width: 320px;
+            max-width: 320px;
+            padding: 2rem;
+            border-radius: 1.75rem;
+            background: linear-gradient(160deg, rgba(255, 255, 255, 0.95) 0%, rgba(247, 245, 243, 0.78) 45%, rgba(156, 175, 136, 0.2) 100%);
+            border: 1px solid rgba(90, 107, 76, 0.12);
+            box-shadow: 0 20px 45px rgba(90, 107, 76, 0.14);
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            isolation: isolate;
+            overflow: hidden;
+        }
+        .testimonial-item::before {
+            content: "\f10d";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            top: 1.5rem;
+            right: 1.75rem;
+            font-size: 2rem;
+            color: rgba(212, 165, 116, 0.22);
+            z-index: 1;
+        }
+        .testimonial-item::after {
+            content: "";
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 160px;
+            height: 160px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.35) 0%, rgba(212, 165, 116, 0) 70%);
+            opacity: 0.8;
+            z-index: 0;
+        }
+        .testimonial-name {
+            position: relative;
+            z-index: 2;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(90, 107, 76, 0.72);
+        }
+        .testimonial-text {
+            position: relative;
+            z-index: 2;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: rgba(33, 42, 30, 0.88);
+        }
+        @keyframes testimonial-scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        @media (max-width: 640px) {
+            .testimonial-item {
+                min-width: 260px;
+                max-width: 260px;
+                padding: 1.75rem;
+                gap: 1rem;
+            }
+            .testimonial-track {
+                gap: 1.25rem;
+            }
+            .testimonial-text {
+                font-size: 0.98rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-cream font-sans">
@@ -179,24 +270,47 @@
         </div>
     </section>
 
-    <!-- Testimonial Section -->
-    <section class="py-20 bg-sage/5">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <div class="bg-white rounded-3xl p-12 shadow-lg">
-                <div class="mb-8">
-                    <i class="fas fa-quote-left text-4xl text-sage/30"></i>
-                </div>
-                <blockquote class="font-serif text-2xl text-forest leading-relaxed mb-8">
-                    "Un véritable coin de paradis au cœur de la Provence. L'appartement est parfaitement situé, lumineux et très bien équipé. Correns est un village magnifique et authentique. Nous avons adoré nos journées à nous promener le long de l'Argens et découvrir les villages alentours."
-                </blockquote>
-                <div class="flex items-center justify-center space-x-4">
-                    <div class="w-12 h-12 bg-sage rounded-full flex items-center justify-center">
-                        <i class="fas fa-user text-white"></i>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-forest">Marie & Pierre</p>
-                        <p class="text-forest/60">Séjour de 5 nuits</p>
-                    </div>
+    <!-- Rolling Testimonials -->
+    <section class="py-16 bg-cream/60">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="font-serif text-3xl font-bold text-forest">Commentaires</h2>
+                <i class="fas fa-comments text-forest/30 text-3xl hidden sm:block" aria-hidden="true"></i>
+            </div>
+            <div class="testimonial-marquee">
+                <div class="testimonial-track">
+                    <article class="testimonial-item">
+                        <p class="testimonial-name">Sylvie • 5 nuits</p>
+                        <p class="testimonial-text">Très bien situé, au cœur d'un petit village de la Provence Verte où il fait bon vivre et où l'accueil est exceptionnel. De nombreuses découvertes et randonnées dans tous les villages environnants.</p>
+                    </article>
+                    <article class="testimonial-item">
+                        <p class="testimonial-name">Gwendoline • 7 nuits</p>
+                        <p class="testimonial-text">Nous avons passé un agréable séjour, très bel endroit, nombreuses activités à faire aux alentours, je recommande. Hôte très réactif et agréable.</p>
+                    </article>
+                    <article class="testimonial-item">
+                        <p class="testimonial-name">Angelika • 4 nuits</p>
+                        <p class="testimonial-text">Nous nous sommes sentis totalement à l'aise dans cet endroit. C'est un village vivant, avec une vie quotidienne tout à fait normale et un bon point de départ pour explorer les environs. L'appartement lui-même est bien équipé, agréable et propre. Je reviendrai avec plaisir !</p>
+                    </article>
+                    <article class="testimonial-item">
+                        <p class="testimonial-name">Marie &amp; Pierre • 5 nuits</p>
+                        <p class="testimonial-text">Un véritable coin de paradis au cœur de la Provence. L'appartement est parfaitement situé, lumineux et très bien équipé. Correns est un village magnifique et authentique. Nous avons adoré nos journées à nous promener le long de l'Argens et découvrir les villages alentours.</p>
+                    </article>
+                    <article class="testimonial-item" aria-hidden="true">
+                        <p class="testimonial-name">Sylvie • 5 nuits</p>
+                        <p class="testimonial-text">Très bien situé, au cœur d'un petit village de la Provence Verte où il fait bon vivre et où l'accueil est exceptionnel. De nombreuses découvertes et randonnées dans tous les villages environnants.</p>
+                    </article>
+                    <article class="testimonial-item" aria-hidden="true">
+                        <p class="testimonial-name">Gwendoline • 7 nuits</p>
+                        <p class="testimonial-text">Nous avons passé un agréable séjour, très bel endroit, nombreuses activités à faire aux alentours, je recommande. Hôte très réactif et agréable.</p>
+                    </article>
+                    <article class="testimonial-item" aria-hidden="true">
+                        <p class="testimonial-name">Angelika • 4 nuits</p>
+                        <p class="testimonial-text">Nous nous sommes sentis totalement à l'aise dans cet endroit. C'est un village vivant, avec une vie quotidienne tout à fait normale et un bon point de départ pour explorer les environs. L'appartement lui-même est bien équipé, agréable et propre. Je reviendrai avec plaisir !</p>
+                    </article>
+                    <article class="testimonial-item" aria-hidden="true">
+                        <p class="testimonial-name">Marie &amp; Pierre • 5 nuits</p>
+                        <p class="testimonial-text">Un véritable coin de paradis au cœur de la Provence. L'appartement est parfaitement situé, lumineux et très bien équipé. Correns est un village magnifique et authentique. Nous avons adoré nos journées à nous promener le long de l'Argens et découvrir les villages alentours.</p>
+                    </article>
                 </div>
             </div>
         </div>
